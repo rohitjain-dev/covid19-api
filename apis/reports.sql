@@ -8,5 +8,5 @@ WHERE
     Date_reported <= {{ context.params.end_date | is_required }}
 
     {% if country_codes %}
-    AND Country_code IN (SELECT UNNEST(string_split({{ country_codes }}, ',')))
+    AND Country_code IN (SELECT UNNEST(string_to_array({{ country_codes }}, ',')))
     {% endif %}

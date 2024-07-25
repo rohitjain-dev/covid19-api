@@ -15,7 +15,7 @@ SELECT
         Country_code
     {% endif %},
     SUM(New_cases) as Total_cases
-FROM cases;
+FROM cases
 WHERE 
     Date_reported >= {{ context.params.start_date | is_required }} AND 
     Date_reported <= {{ context.params.end_date | is_required }}
@@ -26,4 +26,4 @@ GROUP BY
         Country_code
     {% endif %}
 ORDER BY Total_cases DESC
-LIMIT {{ context.params.top_n | is_required }}
+LIMIT {{ context.params.top_n | default(10) }}
