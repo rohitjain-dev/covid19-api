@@ -1,0 +1,1 @@
+SELECT DISTINCT WHO_region FROM cases;

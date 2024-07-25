@@ -1,0 +1,1 @@
+SELECT DISTINCT Country, Country_code, WHO_region FROM cases;
