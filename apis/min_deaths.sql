@@ -16,7 +16,7 @@ SELECT
     {% endif %},
     SUM(New_deaths) as Total_deaths
 FROM cases
-ßWHERE 
+WHERE 
     Date_reported >= {{ context.params.start_date | is_required }} AND 
     Date_reported <= {{ context.params.end_date | is_required }}
 GROUP BY 
